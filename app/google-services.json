@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "147455083988",
+    "firebase_url": "https://longdomconferences-10971.firebaseio.com",
+    "project_id": "longdomconferences-10971",
+    "storage_bucket": "longdomconferences-10971.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:147455083988:android:5ab4a8694f63c46bd74241",
+        "android_client_info": {
+          "package_name": "com.applications.longdomconferences"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "147455083988-uvk3gp365a1e861moh806kqqadg85roc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-rflY6ZFd4SF2Hd00nJy0XjpM7sOJ12Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "147455083988-uvk3gp365a1e861moh806kqqadg85roc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
