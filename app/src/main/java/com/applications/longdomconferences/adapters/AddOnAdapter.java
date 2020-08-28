@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.applications.longdomconferences.R;
 import com.applications.longdomconferences.listener.CatClickListener1;
 import com.applications.longdomconferences.models.Categories;
 

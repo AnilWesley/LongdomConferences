@@ -46,7 +46,7 @@ public interface ApiInterface {
 
 
     @Headers("Content-Type: application/json")
-    @POST("api/get/mobiledata_conference")
+    @POST("api/get/mobiledata")
     Call<ConferenceBanner> processDataConference(@Body JsonObject body);
 
     @Headers("Content-Type: application/json")

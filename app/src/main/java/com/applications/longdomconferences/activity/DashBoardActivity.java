@@ -281,53 +281,54 @@ public class DashBoardActivity extends AppCompatActivity {
                         sliderImage.setOnIndicatorClickListener(position -> sliderImage.setCurrentPagePosition(position));
 
 
-                        @SuppressLint("SimpleDateFormat")
-                        SimpleDateFormat spf = new SimpleDateFormat("yyyy-MM-dd");
-                        @SuppressLint("SimpleDateFormat")
-                        SimpleDateFormat spf1 = new SimpleDateFormat("yyyy-MM-dd");
+                        if (!modelList.get(0).getStart_date().isEmpty()) {
+                            @SuppressLint("SimpleDateFormat")
+                            SimpleDateFormat spf = new SimpleDateFormat("MM-dd-yyyy");
+                            @SuppressLint("SimpleDateFormat")
+                            SimpleDateFormat spf1 = new SimpleDateFormat("MM-dd-yyyy");
 
 
-                        Date newDate = null;
-                        Date newDate1 = null;
+                            Date newDate = null;
+                            Date newDate1 = null;
 
-                        try {
-                            newDate = spf.parse(modelList.get(0).getStart_date());
-                            newDate1 = spf1.parse(modelList.get(0).getEnd_date());
-                        } catch (ParseException e) {
-                            e.printStackTrace();
+                            try {
+                                newDate = spf.parse(modelList.get(0).getStart_date());
+                                newDate1 = spf1.parse(modelList.get(0).getEnd_date());
+                            } catch (ParseException e) {
+                                e.printStackTrace();
+                            }
+
+
+                            spf = new SimpleDateFormat(MyAppPrefsManager.DD_MMM_YYYY_DATE_FORMAT, Locale.ENGLISH);
+                            spf1 = new SimpleDateFormat(MyAppPrefsManager.DD_MMM_YYYY_DATE_FORMAT1, Locale.ENGLISH);
+
+
+                            assert newDate != null;
+                            String date1 = spf.format(newDate);
+                            String[] data1 = date1.split(" ", 2);
+                            String month1 = "" + data1[0];
+                            String date_1 = "" + data1[1];
+
+                            assert newDate1 != null;
+                            String date2 = spf1.format(newDate1);
+                            String[] data2 = date2.split(" ", 2);
+                            String month2 = "" + data2[0];
+                            String date_2 = "" + data2[1];
+                            String[] data3 = date_2.split(", ", 2);
+                            String date_3 = "" + data3[0];
+
+                            String date3;
+                            if (date_1.equalsIgnoreCase(date_3)) {
+                                date3 = date2;
+                            } else if (month1.equalsIgnoreCase(month2)) {
+                                date2 = date2.replace(month2, "");
+                                date3 = date1 + " -" + date2;
+                            } else {
+                                date3 = date1 + "-" + date2;
+                            }
+                            date.setText(date3);
+
                         }
-
-
-                        spf = new SimpleDateFormat(MyAppPrefsManager.DD_MMM_YYYY_DATE_FORMAT, Locale.ENGLISH);
-                        spf1 = new SimpleDateFormat(MyAppPrefsManager.DD_MMM_YYYY_DATE_FORMAT1, Locale.ENGLISH);
-
-
-                        assert newDate != null;
-                        String date1 = spf.format(newDate);
-                        String[] data1 = date1.split(" ", 2);
-                        String month1 = "" + data1[0];
-                        String date_1 = "" + data1[1];
-
-                        assert newDate1 != null;
-                        String date2 = spf1.format(newDate1);
-                        String[] data2 = date2.split(" ", 2);
-                        String month2 = "" + data2[0];
-                        String date_2 = "" + data2[1];
-                        String[] data3 = date_2.split(", ", 2);
-                        String date_3 = "" + data3[0];
-
-                        String date3;
-                        if (date_1.equalsIgnoreCase(date_3)) {
-                            date3 = date2;
-                        } else if (month1.equalsIgnoreCase(month2)) {
-                            date2 = date2.replace(month2, "");
-                            date3 = date1 + " -" + date2;
-                        } else {
-                            date3 = date1 + "-" + date2;
-                        }
-                        date.setText(date3);
-
-
                         String text = Html.fromHtml(modelList.get(0).getShort_name()).toString();
                         title.setText(text);
 

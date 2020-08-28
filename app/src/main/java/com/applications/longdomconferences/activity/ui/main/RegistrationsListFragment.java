@@ -16,12 +16,13 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.applications.lexismeeting.R;
-import com.applications.lexismeeting.adapters.RegistrationsListAdapter;
-import com.applications.lexismeeting.api.ApiInterface;
-import com.applications.lexismeeting.api.RetrofitClient;
-import com.applications.lexismeeting.models.RegistrationsListResponse;
-import com.applications.lexismeeting.utils.MyAppPrefsManager;
+
+import com.applications.longdomconferences.R;
+import com.applications.longdomconferences.adapters.RegistrationsListAdapter;
+import com.applications.longdomconferences.api.ApiInterface;
+import com.applications.longdomconferences.api.RetrofitClient;
+import com.applications.longdomconferences.models.RegistrationsListResponse;
+import com.applications.longdomconferences.utils.MyAppPrefsManager;
 import com.google.gson.JsonObject;
 
 import org.jetbrains.annotations.NotNull;

@@ -10,6 +10,8 @@ import android.widget.CheckBox;
 import android.widget.TextView;
 
 
+import com.applications.longdomconferences.R;
+import com.applications.longdomconferences.utils.ConstantManager;
 
 import java.util.ArrayList;
 import java.util.HashMap;

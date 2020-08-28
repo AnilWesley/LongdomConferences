@@ -19,7 +19,10 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.applications.longdomconferences.R;
+import com.applications.longdomconferences.activity.DashBoardActivity;
 import com.applications.longdomconferences.models.Events;
+import com.applications.longdomconferences.utils.MyAppPrefsManager;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
@@ -94,52 +97,56 @@ public class PaginationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             case ITEM:
                 final MovieVH movieVH = (MovieVH) holder;
 
-                @SuppressLint("SimpleDateFormat")
-                SimpleDateFormat spf = new SimpleDateFormat("yyyy-MM-dd");
-                @SuppressLint("SimpleDateFormat")
-                SimpleDateFormat spf1 = new SimpleDateFormat("yyyy-MM-dd");
+                if (!result.getStart_date().isEmpty()) {
+                    @SuppressLint("SimpleDateFormat")
+                    SimpleDateFormat spf = new SimpleDateFormat("MM-dd-yyyy");
+                    @SuppressLint("SimpleDateFormat")
+                    SimpleDateFormat spf1 = new SimpleDateFormat("MM-dd-yyyy");
 
 
-                Date newDate = null;
-                Date newDate1 = null;
+                    Date newDate = null;
+                    Date newDate1 = null;
 
-                try {
-                    newDate = spf.parse(result.getStart_date());
-                    newDate1 = spf1.parse(result.getEnd_date());
-                } catch (ParseException e) {
-                    e.printStackTrace();
+                    try {
+                        newDate = spf.parse(result.getStart_date());
+                        newDate1 = spf1.parse(result.getEnd_date());
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+
+
+                    spf = new SimpleDateFormat(MyAppPrefsManager.DD_MMM_YYYY_DATE_FORMAT, Locale.ENGLISH);
+                    spf1 = new SimpleDateFormat(MyAppPrefsManager.DD_MMM_YYYY_DATE_FORMAT1, Locale.ENGLISH);
+
+
+                    assert newDate != null;
+                    String date1 = spf.format(newDate);
+                    String[] data1 = date1.split(" ", 2);
+                    String month1 = "" + data1[0];
+                    String date_1 = "" + data1[1];
+
+                    assert newDate1 != null;
+                    String date2 = spf1.format(newDate1);
+                    String[] data2 = date2.split(" ", 2);
+                    String month2 = "" + data2[0];
+                    String date_2 = "" + data2[1];
+                    String[] data3 = date_2.split(", ", 2);
+                    String date_3 = "" + data3[0];
+
+                    String date3;
+                    if (date_1.equalsIgnoreCase(date_3)) {
+                        date3 = date2;
+                    } else if (month1.equalsIgnoreCase(month2)) {
+                        date2 = date2.replace(month2, "");
+                        date3 = date1 + " -" + date2;
+                    } else {
+                        date3 = date1 + "-" + date2;
+                    }
+
+                    movieVH.articleDate.setText("" + date3);
+                }else {
+                    movieVH.articleDate.setText("");
                 }
-
-
-                spf = new SimpleDateFormat(MyAppPrefsManager.DD_MMM_YYYY_DATE_FORMAT, Locale.ENGLISH);
-                spf1 = new SimpleDateFormat(MyAppPrefsManager.DD_MMM_YYYY_DATE_FORMAT1, Locale.ENGLISH);
-
-
-                assert newDate != null;
-                String date1 = spf.format(newDate);
-                String[] data1 = date1.split(" ", 2);
-                String month1 = "" + data1[0];
-                String date_1 = "" + data1[1];
-
-                assert newDate1 != null;
-                String date2 = spf1.format(newDate1);
-                String[] data2 = date2.split(" ", 2);
-                String month2 = "" + data2[0];
-                String date_2 = "" + data2[1];
-                String[] data3 = date_2.split(", ", 2);
-                String date_3=""+data3[0];
-
-                String date3;
-                if (date_1.equalsIgnoreCase(date_3)) {
-                    date3=date2;
-                } else if (month1.equalsIgnoreCase(month2)) {
-                    date2 = date2.replace(month2, "");
-                    date3 = date1 + " -" + date2;
-                } else {
-                    date3 = date1 + "-" + date2;
-                }
-
-
                 String text = Html.fromHtml(result.getShort_name()).toString();
 
 
@@ -163,8 +170,8 @@ public class PaginationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
                 movieVH.articleType.setText(result.getSubject());
 
-                movieVH.articleDate.setText("" + date3);
 
+               // Glide.with(context).load(result.getIcon_url()).placeholder(R.drawable.logo).into(movieVH.articleImage);
 
                 if (movieResults.get(position).getIcon_url() == null) {
                     movieVH.progressBar.setVisibility(View.GONE);
@@ -172,6 +179,7 @@ public class PaginationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                     Log.d(TAG, "onBindViewHolder: "+result.getIcon_url());
                     Glide.with(context)
                             .load(result.getIcon_url())
+                            .placeholder(R.drawable.icon)
                             .apply(new RequestOptions().diskCacheStrategy(DiskCacheStrategy.NONE))
                             .into(new CustomTarget<Drawable>() {
                                 @Override
