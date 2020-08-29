@@ -130,7 +130,7 @@ public interface ApiInterface {
     Call<BrochureDownload> processDataBrochureDownload(@Body JsonObject body);
 
     @Headers("Content-Type: application/json")
-    @POST("api/get/mobiledata_insert_subscription")
+    @POST("api/conference/mobiledata_insert_equiry")
     Call<BaseResponse> processDataInsertSubscription(@Body JsonObject body);
 
     @Headers("Content-Type: application/json")

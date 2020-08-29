@@ -39,7 +39,7 @@ public class SessionsandTracksActivity extends AppCompatActivity {
 
     String conf_id, TAG = "RESPONSE_DATA";
     String actionTitle, shorttitle, conf_type, description;
-
+    List<Sessions.TracksBean.SubTracksBean> citiesBeanList;
 
     ArrayList<TrackNames> countryItems;
     ArrayList<SubTrackNames> arSubCategory;
@@ -116,11 +116,11 @@ public class SessionsandTracksActivity extends AppCompatActivity {
 
 
                             arSubCategory = new ArrayList<>();
-                            List<Sessions.TracksBean.SubTracksBean> citiesBeanList = countryItemList.getSub_tracks();
+                            citiesBeanList = countryItemList.getSub_tracks();
                             for (Sessions.TracksBean.SubTracksBean citiesBean : citiesBeanList) {
 
                                 SubTrackNames cityItem = new SubTrackNames();
-                                cityItem.setCityName(citiesBean.getSub_track_name());
+                                cityItem.setCityName(citiesBean.getTrack_name());
                                 arSubCategory.add(cityItem);
                             }
 
@@ -150,9 +150,10 @@ public class SessionsandTracksActivity extends AppCompatActivity {
 
                                 HashMap<String, String> mapChild = new HashMap<String, String>();
 
-                                mapChild.put(ConstantManager.Parameter.CITY_NAME, cityItem.getCityName());
-                                mapChild.put(ConstantManager.Parameter.COUNTRY_ID, cityItem.getCountryId());
-                                mapChild.put(ConstantManager.Parameter.COUNTRY_DESCRIPTION, description);
+
+                                    mapChild.put(ConstantManager.Parameter.CITY_NAME, cityItem.getCityName());
+                                    mapChild.put(ConstantManager.Parameter.COUNTRY_ID, cityItem.getCountryId());
+                                    mapChild.put(ConstantManager.Parameter.COUNTRY_DESCRIPTION, description);
 
 
                                 childArrayList.add(mapChild);

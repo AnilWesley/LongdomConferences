@@ -370,6 +370,8 @@
     <string name="upload_video">UPLOAD VIDEO</string>
     <string name="read_file">This app needs access to your file storage so that it can read video.</string>
     <string name="belgium">Belgium</string>
+    <string name="brussels">Brussels</string>
+    <string name="enter_country_name">Enter Country Name*</string>
 
 
 </resources>

@@ -45,6 +45,8 @@ public class ContactUsActivity extends AppCompatActivity {
     TextInputEditText editEmail;
     @BindView(R.id.editPhone)
     TextInputEditText editPhone;
+    @BindView(R.id.editCountry)
+    TextInputEditText editCountry;
     @BindView(R.id.editQuires)
     TextInputEditText editQuires;
     @BindView(R.id.btnDownload)
@@ -52,7 +54,7 @@ public class ContactUsActivity extends AppCompatActivity {
     @BindView(R.id.progressBar)
     LinearLayout progressBar;
 
-    String firstName, email, phone, quires;
+    String firstName, email, phone,country, quires;
     String TAG = "RESPONSE_DATA";
     String date;
     @BindView(R.id.txtmail1)
@@ -125,6 +127,7 @@ public class ContactUsActivity extends AppCompatActivity {
                 firstName = Objects.requireNonNull(editFirst.getText()).toString().trim();
                 email = Objects.requireNonNull(editEmail.getText()).toString().trim();
                 phone = Objects.requireNonNull(editPhone.getText()).toString().trim();
+                country = Objects.requireNonNull(editCountry.getText()).toString().trim();
                 quires = Objects.requireNonNull(editQuires.getText()).toString().trim();
 
                 if (firstName.isEmpty()) {
@@ -136,6 +139,9 @@ public class ContactUsActivity extends AppCompatActivity {
 
                 } else if (phone.isEmpty()) {
                     Toast.makeText(ContactUsActivity.this, "Enter Mobile Number", Toast.LENGTH_SHORT).show();
+
+                } else if (country.isEmpty()) {
+                    Toast.makeText(ContactUsActivity.this, "Enter Country Name", Toast.LENGTH_SHORT).show();
 
                 } else if (quires.isEmpty()) {
                     Toast.makeText(ContactUsActivity.this, "Enter Researh Interest", Toast.LENGTH_SHORT).show();
@@ -158,6 +164,7 @@ public class ContactUsActivity extends AppCompatActivity {
         jsonObject.addProperty("name", firstName);
         jsonObject.addProperty("email", email);
         jsonObject.addProperty("contact", phone);
+        jsonObject.addProperty("country", country);
         jsonObject.addProperty("research", quires);
         jsonObject.addProperty("created_at", date);
         jsonObject.addProperty("source", "android");
@@ -177,6 +184,7 @@ public class ContactUsActivity extends AppCompatActivity {
                         editFirst.setText("");
                         editEmail.setText("");
                         editPhone.setText("");
+                        editCountry.setText("");
                         editQuires.setText("");
                     } else {
                         progressBar.setVisibility(View.GONE);

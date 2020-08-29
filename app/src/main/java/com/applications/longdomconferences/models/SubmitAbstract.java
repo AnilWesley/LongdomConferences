@@ -5,17 +5,17 @@ public class SubmitAbstract {
 
     /**
      * status : true
+     * file : https://s3.amazonaws.com/longdom/abstracts/recycling-308-1598685009.pdf
      */
 
-    private boolean status;
-
+    private String status;
     private String file;
 
-    public boolean isStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(boolean status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 

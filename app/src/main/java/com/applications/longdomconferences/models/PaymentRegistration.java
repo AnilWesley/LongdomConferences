@@ -7,17 +7,17 @@ public class PaymentRegistration {
 
     /**
      * status : true
-     * registration_details : [{"name":"ANIL","conf_id":"6036","reg_id":"388051","country":"india","email":"anil@gmail.com","phone":"123466","amount":"799","currency":"gbp","paystatus":"pending","productid":"71972","product_type":"final"}]
+     * registration_details : [{"name":"Shankar","conf_id":"224","reg_id":"2490","country":"india","email":"shankar@gmail.com","phone":"123466","paystatus":"pending","productid":"2621","value":"599","product_type":"early"},{"name":"Shankar","conf_id":"224","reg_id":"2490","country":"india","email":"shankar@gmail.com","phone":"123466","paystatus":"pending","productid":"3447","value":"959","product_type":"early"}]
      */
 
-    private boolean status;
+    private String status;
     private List<RegistrationDetailsBean> registration_details;
 
-    public boolean isStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(boolean status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
@@ -31,17 +31,16 @@ public class PaymentRegistration {
 
     public static class RegistrationDetailsBean {
         /**
-         * name : ANIL
-         * conf_id : 6036
-         * reg_id : 388051
+         * name : Shankar
+         * conf_id : 224
+         * reg_id : 2490
          * country : india
-         * email : anil@gmail.com
+         * email : shankar@gmail.com
          * phone : 123466
-         * amount : 799
-         * currency : gbp
          * paystatus : pending
-         * productid : 71972
-         * product_type : final
+         * productid : 2621
+         * value : 599
+         * product_type : early
          */
 
         private String name;
@@ -50,10 +49,9 @@ public class PaymentRegistration {
         private String country;
         private String email;
         private String phone;
-        private String amount;
-        private String currency;
         private String paystatus;
         private String productid;
+        private String value;
         private String product_type;
 
         public String getName() {
@@ -104,22 +102,6 @@ public class PaymentRegistration {
             this.phone = phone;
         }
 
-        public String getAmount() {
-            return amount;
-        }
-
-        public void setAmount(String amount) {
-            this.amount = amount;
-        }
-
-        public String getCurrency() {
-            return currency;
-        }
-
-        public void setCurrency(String currency) {
-            this.currency = currency;
-        }
-
         public String getPaystatus() {
             return paystatus;
         }
@@ -134,6 +116,14 @@ public class PaymentRegistration {
 
         public void setProductid(String productid) {
             this.productid = productid;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        public void setValue(String value) {
+            this.value = value;
         }
 
         public String getProduct_type() {

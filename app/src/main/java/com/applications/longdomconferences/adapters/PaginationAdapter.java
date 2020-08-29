@@ -173,7 +173,7 @@ public class PaginationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
                // Glide.with(context).load(result.getIcon_url()).placeholder(R.drawable.logo).into(movieVH.articleImage);
 
-                if (movieResults.get(position).getIcon_url() == null) {
+                if (movieResults.get(position).getIcon_url() == null || movieResults.get(position).getIcon_url().isEmpty()) {
                     movieVH.progressBar.setVisibility(View.GONE);
                 } else {        // load movie thumbnail
                     Log.d(TAG, "onBindViewHolder: "+result.getIcon_url());

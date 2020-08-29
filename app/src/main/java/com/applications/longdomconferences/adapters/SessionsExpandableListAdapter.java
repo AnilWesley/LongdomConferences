@@ -119,7 +119,6 @@ public class SessionsExpandableListAdapter extends BaseExpandableListAdapter {
             viewHolderChild.tvSubCategoryName = convertView.findViewById(R.id.tvSubCategoryName);
             viewHolderChild.tvDescription = convertView.findViewById(R.id.tvDescription);
 
-
             convertView.setTag(viewHolderChild);
         } else {
             viewHolderChild = (ViewHolderChild) convertView.getTag();

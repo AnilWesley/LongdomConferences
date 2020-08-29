@@ -31,7 +31,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/belgium"
+                    android:text="@string/brussels"
                     android:textColor="@color/colorPrimaryDark" />
 
                 <TextView
@@ -41,7 +41,7 @@
                     android:layout_marginTop="5dp"
                     android:drawableEnd="@drawable/ic_baseline_mail_24"
                     android:gravity="center_vertical"
-                    android:text="lexis@eventqueries.com" />
+                    android:text="support@longdom.com" />
 
                 <TextView
                     android:id="@+id/txtmail2"
@@ -50,7 +50,8 @@
                     android:layout_marginTop="5dp"
                     android:drawableEnd="@drawable/ic_baseline_mail_24"
                     android:gravity="center_vertical"
-                    android:text="ties@lexisconferences.com" />
+                    android:text="ties@lexisconferences.com"
+                    android:visibility="gone"/>
 
 
                 <TextView
@@ -60,7 +61,7 @@
                     android:layout_marginTop="5dp"
                     android:drawableEnd="@drawable/ic_baseline_call_24"
                     android:gravity="center_vertical"
-                    android:text="+32 (800) 709-48" />
+                    android:text="+32 53280122" />
 
                 <TextView
                     android:id="@+id/txtDail2"
@@ -70,6 +71,7 @@
                     android:drawableEnd="@drawable/ic_baseline_call_24"
                     android:gravity="center_vertical"
                     android:text="+44 (203) 966-4288"
+                    android:visibility="gone"
                     />
 
             </LinearLayout>
@@ -119,6 +121,19 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/enter_phone_number"
                     android:inputType="phone" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editCountry"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/enter_country_name"
+                    android:inputType="textCapWords" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout

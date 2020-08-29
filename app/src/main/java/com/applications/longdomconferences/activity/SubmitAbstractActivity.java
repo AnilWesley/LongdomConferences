@@ -461,7 +461,7 @@ public class SubmitAbstractActivity extends AppCompatActivity implements Progres
                 if (response.isSuccessful()) {
                     assert response.body() != null;
                     SubmitAbstract events = response.body();
-                    Log.d(TAG, "onResponse1: " + events.isStatus());
+                    Log.d(TAG, "onResponse1: " + events.getStatus());
                     Log.d(TAG, "onResponse2: " + events.getFile());
                     String title = "Abstract Submission";
                     String message = "Thank You for submission for Abstract. Please check your email to get the status of your Abstract.Please do check your junk or spam folder if it doesn't arrive in your inbox.";

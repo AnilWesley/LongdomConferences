@@ -71,8 +71,6 @@ public class CheckOutActivity extends AppCompatActivity {
     RecyclerView checkoutRecycler;
 
     String conf_Id, userName, emailID, mobileNumber, country, productType;
-
-    private static final String BACKEND_URL = "https://www.conferenceseries.com/stripe/";
     @BindView(R.id.cardInputWidget)
     CardInputWidget cardInputWidget;
     @BindView(R.id.payButton)
@@ -217,7 +215,7 @@ public class CheckOutActivity extends AppCompatActivity {
                         assert response.body() != null;
 
                         List<PaymentRegistration.RegistrationDetailsBean> payment1s = response.body().getRegistration_details();
-                        Log.d(TAG, "onResponse: " + payment1s.get(0).getAmount());
+                        Log.d(TAG, "onResponse: " + payment1s.get(0).getValue());
                         reg_id = payment1s.get(0).getReg_id();
 
 
@@ -231,7 +229,7 @@ public class CheckOutActivity extends AppCompatActivity {
                 @Override
                 public void onFailure(@NotNull Call<PaymentRegistration> call, @NotNull Throwable t) {
 
-                    Log.d(TAG, "onFailure:" + t.toString());
+                    Log.d(TAG, "onFailureSuresh:" + t.toString());
                 }
             });
         } catch (Exception e) {
@@ -370,7 +368,7 @@ public class CheckOutActivity extends AppCompatActivity {
         if (response.isSuccessful()) {
 
             assert response.body() != null;
-            Log.d(TAG, "onResponse: " + response.body().getPublishableKey());
+            Log.d(TAG, "onResponseAnil: " + response.body().getPublishableKey());
             // The response from the server includes the Stripe publishable key and
             // PaymentIntent details.
             // For added security, our sample app gets the publishable key from the server
@@ -518,7 +516,7 @@ public class CheckOutActivity extends AppCompatActivity {
 
                     if (response.isSuccessful()) {
                         assert response.body() != null;
-                        Log.d(TAG, "onResponse: " + response.body().isStatus());
+                        Log.d(TAG, "onResponseStripe: " + response.body().getStatus());
 
                     } else {
                         Log.d(TAG, "onFailure:" + response.toString());

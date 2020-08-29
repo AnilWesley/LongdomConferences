@@ -4,9 +4,10 @@ import java.util.List;
 
 public class Template {
 
+
     /**
      * status : true
-     * result : [{"abstract_template":"https://computergraphics-animation.conferenceseries.com/abstract-template.doc"}]
+     * result : [{"conf_id":"194","abstract_template":"https://s3.amazonaws.com/longdom/documents/fibreoptics-2020-194-680.pdf"}]
      */
 
     private boolean status;
@@ -30,10 +31,20 @@ public class Template {
 
     public static class ResultBean {
         /**
-         * abstract_template : https://computergraphics-animation.conferenceseries.com/abstract-template.doc
+         * conf_id : 194
+         * abstract_template : https://s3.amazonaws.com/longdom/documents/fibreoptics-2020-194-680.pdf
          */
 
+        private String conf_id;
         private String abstract_template;
+
+        public String getConf_id() {
+            return conf_id;
+        }
+
+        public void setConf_id(String conf_id) {
+            this.conf_id = conf_id;
+        }
 
         public String getAbstract_template() {
             return abstract_template;
