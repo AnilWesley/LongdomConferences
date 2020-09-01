@@ -55,7 +55,7 @@ public interface ApiInterface {
 
 
     @Headers("Content-Type: application/json")
-    @POST("stripe/public/create-payment-intent.php")
+    @POST("api/stripe/public/create-payment-intent.php")
     Call<PaymentStripe> processDataConferencePayment(@Body JsonObject body);
 
 
@@ -120,7 +120,6 @@ public interface ApiInterface {
             @Part("app_user_id") RequestBody app_user_id,
             @Part("type") RequestBody type,
             @Part("source") RequestBody source);
-
 
 
 

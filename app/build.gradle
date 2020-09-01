@@ -1,6 +1,15 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+
+        release {
+            storeFile file('E:\\Android projects\\LongdomConferences\\jks\\longdomconference.jks')
+            storePassword 'Longdom@123'
+            keyAlias 'longdomconference'
+            keyPassword 'Longdom@123'
+        }
+    }
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
 
@@ -12,6 +21,7 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        signingConfig signingConfigs.release
     }
 
     buildTypes {
